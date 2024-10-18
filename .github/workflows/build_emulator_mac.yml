@@ -9,8 +9,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - { runner: macos-15-arm64 }
-          - { runner: macos-15 }
+          - { runner: macos-13-arm64 }
+          - { runner: macos-13 }
     runs-on: ${{matrix.runner}} 
     steps:
       - name: Checkout sources
