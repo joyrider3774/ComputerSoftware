@@ -206,6 +206,7 @@ set(ALL_INCLUDE_DIRS
     ${SDL2_INCLUDE_DIR}
     ${OPENAL_INCLUDE_DIR}
     ${LIBRARIES_DIR}
+    ${EXTRA_INCLUDE_DIR}
     ${LIBRARIES_DIR}/glad/include/)
   
 include_directories(${ALL_INCLUDE_DIRS})

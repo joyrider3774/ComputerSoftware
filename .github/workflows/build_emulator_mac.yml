@@ -1,0 +1,30 @@
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually target the Actions tab
+  workflow_dispatch:
+
+name: Build Emulator Mac Os
+jobs:
+  build:
+    runs-on: macos-latest    
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+          
+      - name: Setup homebrew stuff
+        run: |
+          brew update
+          brew install sdl2 sdl2_image openal-soft freealut tinyxml2 libpng cmake
+          brew reinstall libpng
+          
+      - name: Build
+        run: |
+          mkdir build
+          cd build 
+          cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DEXTRA_INCLUDE_DIR="/opt/homebrew/include" -DCMAKE_INSTALL_PREFIX="./artifact" ../DesktopEmulator
+          make install
+      - name: Store build
+        uses: actions/upload-artifact@v3
+        with:
+          name: Emulator-Macos
+          path: build/artifact
