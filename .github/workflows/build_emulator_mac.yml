@@ -27,8 +27,12 @@ jobs:
           cd build 
           cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DEXTRA_INCLUDE_DIR="${{matrix.homebrew_inc_dir}}" -DCMAKE_INSTALL_PREFIX="./artifact" ../DesktopEmulator
           make install
+      - name: Prepare artifact
+        run: |
+          cd artifact
+          tar vfc Vircon-Emulator-Macos-${{matrix.runner}}.tar .
       - name: Store build
         uses: actions/upload-artifact@v3
         with:
           name: Emulator-Macos-${{matrix.runner}} 
-          path: build/artifact
+          path: build/artifact/Vircon-Emulator-Macos-${{matrix.runner}}.tar
