@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Vircon32-Emulator-Macos-${{matrix.runner}} 
-          path: build/artifact/Vircon-Emulator-Macos-${{matrix.runner}}.tar
+          path: build/artifact/Vircon32-Emulator-Macos-${{matrix.runner}}.tar
