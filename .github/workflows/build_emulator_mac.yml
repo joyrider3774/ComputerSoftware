@@ -29,7 +29,7 @@ jobs:
           make install
       - name: Prepare artifact
         run: |
-          cd artifact
+          cd build/artifact
           tar vfc Vircon-Emulator-Macos-${{matrix.runner}}.tar .
       - name: Store build
         uses: actions/upload-artifact@v3
