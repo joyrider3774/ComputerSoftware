@@ -30,9 +30,9 @@ jobs:
       - name: Prepare artifact
         run: |
           cd build/artifact
-          tar vfc Vircon-Emulator-Macos-${{matrix.runner}}.tar .
+          tar vfc Vircon32-Emulator-Macos-${{matrix.runner}}.tar Vircon32
       - name: Store build
         uses: actions/upload-artifact@v3
         with:
-          name: Emulator-Macos-${{matrix.runner}} 
+          name: Vircon32-Emulator-Macos-${{matrix.runner}} 
           path: build/artifact/Vircon-Emulator-Macos-${{matrix.runner}}.tar
