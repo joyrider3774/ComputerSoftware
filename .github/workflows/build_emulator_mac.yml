@@ -5,11 +5,11 @@ on:
 
 name: Build Emulator Mac Os
 jobs:
+  name: ${{matrix.runner}}
   build:
     strategy:
       matrix:
         include:
-          - { runner: macos-13-arm64, homebrew_inc_dir: /usr/local/include}
           - { runner: macos-13, homebrew_inc_dir: /usr/local/include}
           - { runner: macos-latest, homebrew_inc_dir: /opt/homebrew/include}
     runs-on: ${{matrix.runner}} 
