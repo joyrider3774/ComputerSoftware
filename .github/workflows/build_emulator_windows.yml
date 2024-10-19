@@ -10,7 +10,7 @@ jobs:
       matrix:
         include:
           - { sys: mingw64, env: x86_64 }
-          - { sys: mingw32, env: i686 }
+         # - { sys: mingw32, env: i686 } does not work tinyxml does not exist for this
     runs-on: windows-latest    
     steps:
       - name: Checkout sources
