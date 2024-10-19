@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir build
           cd build 
-          cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX="./artifact" ../DesktopEmulator
+          cmake -G "MSYS Makefiles" -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX="./artifact" ../DesktopEmulator
           make install
       - name: Copy dll libraries
         shell: msys2 {0}
