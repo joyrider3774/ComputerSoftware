@@ -46,35 +46,22 @@ jobs:
       - name: Copy dll libraries
         shell: msys2 {0}
         run: |
-          cp /${{matrix.sys}}/bin/libbrotli*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libbz*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libglib*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libgraphite*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libharfbuzz*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libhwy*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libiconv*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libintl*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libjbig*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libjpeg*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libjxl*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/liblcms*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libLerc*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/liblzma*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libmpg123*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libpcre*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libpng*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libstdc*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libwebp*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libzstd*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/zlib*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libSDL2*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifcact/ | :/ | :
-          cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifcact/ | :/ | :
+          cp /${{matrix.sys}}/bin/libalut*.dll ./build/artifcact/Emulator
+          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libopenal*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libbzma*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libpcre*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libstdc++*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libwebp*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libzstd*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/zlib*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libjpeg*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libtinyxml*.dll ./build/artifcact/
       - name: Store build
         uses: actions/upload-artifact@v4
         with:
