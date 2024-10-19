@@ -50,7 +50,7 @@ jobs:
           cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifact/
           cp /${{matrix.sys}}/bin/libopenal*.dll ./build/artifact/
           cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libbzma*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/liblzma*.dll ./build/artifact/
           cp /${{matrix.sys}}/bin/libpcre*.dll ./build/artifact/
           cp /${{matrix.sys}}/bin/libstdc++*.dll ./build/artifact/
           cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifact/
