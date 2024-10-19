@@ -3,7 +3,7 @@ on:
   # Allows you to run this workflow manually target the Actions tab
   workflow_dispatch:
 
-name: Build Windows
+name: Build Emulator Windows
 jobs:
   build:
     strategy:
@@ -32,6 +32,10 @@ jobs:
             mingw-w64-${{matrix.env}}-openal
             mingw-w64-${{matrix.env}}-freealut
             mingw-w64-${{matrix.env}}-tinyxml2
+      - name: Patch Os Dialog source file
+        shell: msys2 {0}
+        run: |
+          sed -i 's/WPARAM/long long int/g' DesktopEmulator/ExternalLibraries/osdialog/osdialog_win.c
       - name: Build
         shell: msys2 {0}
         run: |
