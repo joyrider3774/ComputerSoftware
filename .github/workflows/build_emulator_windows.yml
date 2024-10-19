@@ -46,22 +46,22 @@ jobs:
       - name: Copy dll libraries
         shell: msys2 {0}
         run: |
-          cp /${{matrix.sys}}/bin/libalut*.dll ./build/artifcact/Emulator
-          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libopenal*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libbzma*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libpcre*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libstdc++*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libwebp*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libzstd*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/zlib*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libjpeg*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifcact/
-          cp /${{matrix.sys}}/bin/libtinyxml*.dll ./build/artifcact/
+          cp /${{matrix.sys}}/bin/libalut*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libopenal*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libbzma*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libpcre*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libstdc++*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libwebp*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libzstd*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/zlib*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libjpeg*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libtinyxml*.dll ./build/artifact/
       - name: Store build
         uses: actions/upload-artifact@v4
         with:
