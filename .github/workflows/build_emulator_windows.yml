@@ -37,7 +37,7 @@ jobs:
             mingw-w64-${{matrix.env}}-libpng
             mingw-w64-${{matrix.env}}-openal
             mingw-w64-${{matrix.env}}-freealut
-      - if: ${{ matrix.sys == 'mingw64'}} || ${{ matrix.sys == 'ucrt64'}}
+      - if: ${{ (matrix.sys == 'mingw64') || (matrix.sys == 'ucrt64') }}
         name: Patch Os Dialog source file for 64bit
         shell: msys2 {0}
         run: |
