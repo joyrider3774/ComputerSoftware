@@ -50,7 +50,6 @@ jobs:
           cp /${{matrix.sys}}/bin/liblcms2*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libiconv*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libintl*.dll ./build/artifact/Emulator
-          cp /${{matrix.sys}}/bin/libglib*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libgraphite*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libLer*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libjbig*.dll ./build/artifact/Emulator
