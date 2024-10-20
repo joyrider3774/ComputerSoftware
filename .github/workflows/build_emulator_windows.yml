@@ -10,12 +10,17 @@ jobs:
       matrix:
         include:
           - { sys: mingw64, env: x86_64 }
-         # - { sys: mingw32, env: i686 } does not work tinyxml does not exist for this
+          - { sys: mingw32, env: i686 }
           - { sys: ucrt64, env: ucrt-x86_64 }
     runs-on: windows-latest    
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+      - name: Checkout TinyXML2 sources
+        uses: actions/checkout@v4
+        with:
+          repository: 'leethomason/tinyxml2'
+          path: tinyxml2
       - name: Setup Msys
         uses: msys2/setup-msys2@v2
         with:
@@ -32,11 +37,19 @@ jobs:
             mingw-w64-${{matrix.env}}-libpng
             mingw-w64-${{matrix.env}}-openal
             mingw-w64-${{matrix.env}}-freealut
-            mingw-w64-${{matrix.env}}-tinyxml2
-      - name: Patch Os Dialog source file
+      - if: ${{ matrix.sys == 'mingw64'}} || ${{ matrix.sys == 'ucrt64'}}
+        name: Patch Os Dialog source file for 64bit
         shell: msys2 {0}
         run: |
           sed -i 's/WPARAM/long long int/g' DesktopEmulator/ExternalLibraries/osdialog/osdialog_win.c
+      - name: Build TinyXml2
+        shell: msys2 {0}
+        run: |
+          cd tinyxml2
+          mkdir build
+          cd build 
+          cmake -G "MSYS Makefiles" -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON ..
+          make install
       - name: Build
         shell: msys2 {0}
         run: |
@@ -77,7 +90,6 @@ jobs:
           cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifact/Emulator
-          cp /${{matrix.sys}}/bin/libtinyxml*.dll ./build/artifact/Emulator
       - name: Store build
         uses: actions/upload-artifact@v4
         with:
