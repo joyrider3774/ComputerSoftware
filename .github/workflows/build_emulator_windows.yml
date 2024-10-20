@@ -46,21 +46,38 @@ jobs:
       - name: Copy dll libraries
         shell: msys2 {0}
         run: |
+          rm -f ./build/artifact/Emulator/*.dll
+          cp /${{matrix.sys}}/bin/liblcms2*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libiconv*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libintl*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libglib*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libgraphite*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libLer*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libjbig*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libhw*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libbrotli*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libyu*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libSvtAv1*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/rav1*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libao*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libdav1d*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libjxl*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libavif*.dll ./build/artifact/Emulator  
           cp /${{matrix.sys}}/bin/libalut*.dll ./build/artifact/Emulator
-          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libopenal*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/liblzma*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libstdc++*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libwebp*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libzstd*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/zlib*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libjpeg*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifact/
-          cp /${{matrix.sys}}/bin/libtinyxml*.dll ./build/artifact/
+          cp /${{matrix.sys}}/bin/libdeflate*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libopenal*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libgcc*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/liblzma*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libstdc++*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libtiff*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libwebp*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libzstd*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/zlib*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libjpeg*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/SDL2*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libsharpyuv*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libwinpthread*.dll ./build/artifact/Emulator
+          cp /${{matrix.sys}}/bin/libtinyxml*.dll ./build/artifact/Emulator
       - name: Store build
         uses: actions/upload-artifact@v4
         with:
