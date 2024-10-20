@@ -47,6 +47,7 @@ jobs:
         shell: msys2 {0}
         run: |
           rm -f ./build/artifact/Emulator/*.dll
+          cp /${{matrix.sys}}/bin/libpng*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/liblcms2*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libiconv*.dll ./build/artifact/Emulator
           cp /${{matrix.sys}}/bin/libintl*.dll ./build/artifact/Emulator
