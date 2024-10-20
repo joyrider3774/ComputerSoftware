@@ -42,6 +42,11 @@ jobs:
         shell: msys2 {0}
         run: |
           sed -i 's/WPARAM/long long int/g' DesktopEmulator/ExternalLibraries/osdialog/osdialog_win.c
+      - if: ${{ (matrix.sys == 'mingw32') }}
+        name: Patch Os Dialog source file for 32bit
+        shell: msys2 {0}
+        run: |
+          sed -i 's/WPARAM/long int/g' DesktopEmulator/ExternalLibraries/osdialog/osdialog_win.c              
       - name: Build TinyXml2
         shell: msys2 {0}
         run: |
